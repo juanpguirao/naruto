@@ -4,7 +4,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'naruto': "url('./img/fondo2.webp')",
+      },
+      fontFamily:{
+        'Naruto':['Naruto']
+      }
+    },
   },
   plugins: [],
 }

@@ -7,7 +7,6 @@ import Home from './Views/Home'
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/detalle' element={<Detalle/>}/>
           <Route path='/character/:id' element={<Detalle/>}/>
         </Routes>
       </BrowserRouter>

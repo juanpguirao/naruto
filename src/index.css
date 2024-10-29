@@ -14,3 +14,7 @@ code {
 fondo{
   background-image: url('./img/background1.jpg');
 }
+@font-face {
+  font-family: "Naruto";
+  src: url("./font/njnaruto.ttf");
+}

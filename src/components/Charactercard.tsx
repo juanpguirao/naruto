@@ -1,21 +1,23 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { CharacterData } from '../types/CharacterTypes';
+import { useNavigate } from 'react-router-dom';
 
 interface Props{data:CharacterData}
 
 export const CharacterCard = (props:Props) => {
+  const navigate = useNavigate();
   return (
-    <div className="w-full max-w-md mx-auto bg-orange-100 rounded-lg overflow-hidden shadow-lg">
+    <div onClick={() => navigate(`/character/${props.data.id}`)} className="w-full max-w-xs mx-auto bg-orange-100 rounded-lg overflow-hidden shadow-lg">
       {/* Main character image */}
-      <div className="relative">
-        <img src={props.data.images ?? "-"} alt={props.data.name ?? "-"} className="w-full h-auto" />
+      <div className="flex justify-center relative">
+        <img src={props.data.images[0] ?? "-"} alt={props.data.name ?? "-"} className="w-full  h-52" />
         <div className="absolute inset-0 bg-gradient-to-t from-orange-500 to-transparent opacity-50"></div>
       </div>
 
       {/* Character name and stats */}
       <div className="bg-orange-500 text-white p-4">
-        <h2 className="text-2xl font-bold mb-2">{props.data.name}</h2>
+        <h2 className="truncate text-2xl font-bold mb-2">{props.data.name}</h2>
         <div className="grid grid-cols-2 gap-2">
           <StatItem label="GOUTAN" value={props.data.jutsu ? props.data.jutsu.length:"-"} />
           <StatItem label="CLAN" value={props.data.personal.clan ?? "-"} />
@@ -41,6 +43,6 @@ export const CharacterCard = (props:Props) => {
 const StatItem: React.FC<{ label: string; value: number|string }> = ({ label, value }) => (
   <div className="flex justify-between items-center">
     <span className="text-sm">{label}</span>
-    <span className="font-bold">{value}</span>
+    <span className="truncate font-bold">{value}</span>
   </div>
 );

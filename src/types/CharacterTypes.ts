@@ -48,6 +48,6 @@ export interface CharacterData {
     tools: string[];
     voiceActors: {
       "japanese": string,
-      "english": string[]
+      "english": string
     }
   }
