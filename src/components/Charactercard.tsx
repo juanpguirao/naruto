@@ -12,14 +12,14 @@ export const CharacterCard = (props:Props) => {
       {/* Main character image */}
       <div className="flex justify-center relative">
         <img src={props.data.images[0] ?? "-"} alt={props.data.name ?? "-"} className="w-full  h-52" />
-        <div className="absolute inset-0 bg-gradient-to-t from-orange-500 to-transparent opacity-50"></div>
+        <div className="absolute inset-0  from-orange-500 to-transparent opacity-50"></div>
       </div>
 
       {/* Character name and stats */}
       <div className="bg-orange-500 text-white p-4">
-        <h2 className="truncate text-2xl font-bold mb-2">{props.data.name}</h2>
+        <h2 className="truncate text-2xl mb-2 font-Naruto">{props.data.name}</h2>
         <div className="grid grid-cols-2 gap-2">
-          <StatItem label="GOUTAN" value={props.data.jutsu ? props.data.jutsu.length:"-"} />
+
           <StatItem label="CLAN" value={props.data.personal.clan ?? "-"} />
           <StatItem label="SKILLS" value={props.data.jutsu ? props.data.jutsu.length:"-"} />
           <StatItem label="NATURETYPE" value={props.data.natureType ? props.data.natureType[0]:"-"} />
