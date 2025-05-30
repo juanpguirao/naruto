@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import { useNavigate, useParams } from 'react-router-dom';
-import { CharacterCard } from '../components/Charactercard';
+//import { CharacterCard } from '../components/Charactercard';
 import { CharacterData } from '../types/CharacterTypes';
 
 
@@ -12,12 +12,14 @@ const Detalle = () => {
   const { id } = useParams();
   const [imgNumber, setImgNumber] = useState(0);
 
-  const getData = async () => {
-    const result = await fetch('https://narutodb.xyz/api/character/' + id);
-    const data = await result.json();
-    setCharacter(data);
-  }
+  
   useEffect(() => {
+    const getData = async () => {
+      const result = await fetch('https://dattebayo-api.onrender.com/characters/'+id);
+      const data = await result.json();
+      console.log(data);
+      setCharacter(data);
+    }
     getData()
   }, [id])
 

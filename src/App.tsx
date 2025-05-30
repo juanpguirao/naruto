@@ -4,11 +4,13 @@ import Home from './Views/Home'
 
   function App() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <switch>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/character/:id' element={<Detalle/>}/>
         </Routes>
+        </switch>
       </BrowserRouter>
 
     )
